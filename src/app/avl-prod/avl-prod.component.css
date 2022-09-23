@@ -1,0 +1,22 @@
+
+
+.logi{
+    height: 5px;
+    width: 5px;
+}
+
+.btn{
+    background-color: 	rgb(253, 180, 217);
+    border: 2px solid white;
+
+}
+.card{
+    margin-top: 10px;
+}
+.btn:hover{
+    background-color: black;
+}
+.card-img-t{
+    height:270px;
+    border-radius: 50% solid white;
+}

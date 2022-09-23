@@ -1,0 +1,63 @@
+
+/*access the style through class attribute*/
+.stylebinding1 {
+  color: red;
+  background-color: beige;
+}
+
+/*Class for retrieving details from ProductDetails using *ngFor and *ngSwitchCase*/
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: yellow;
+}
+/*Styling using ngClass*/
+.blue{
+  color:blue;
+}
+.shadow{
+  text-shadow: 2px 2px 2px rgb(255, 230, 0);
+}
+.size{
+  font-size: 24px;
+}
+.d-block{
+  height: 500px;
+  width:100%
+}
+.card{
+  border: 2px solid rgb(220, 101, 165);
+  border-radius: 20px;
+  height: 400px;
+  margin-top: 10px;
+  margin-left:5px;
+  
+}
+.card-img-top{
+  height:300px;
+  border-radius: 20px;
+}
+.btn{
+  background-color: pink;
+  border-radius: 12px;
+  border:2px solid white;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: -10px;
+}
+.btn:hover{
+  background-color: black;
+}
+.card-img-t{
+  height:270px;
+  border-radius: 20px;
+}
+.carousel{
+  margin-top: -50px;
+}

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Nabla&family=Qwitcher+Grypen:wght@700&display=swap');
+marquee{
+    text-shadow:2px 3px 3px rgba(223, 102, 102, 0.724);
+    color:rgb(118, 12, 67);
+    font-size: 28px;
+    font-family: 'Combo', cursive;
+    font-family: 'Nabla', cursive;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 50px;
+    }
+img{
+    height:150px;
+    width:150px;
+ 
+    margin-top:10px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+.prodimg{
+    height:200px;
+    width:200px;
+    margin-left:40px;
+    margin-top:10px;
+    margin-bottom:10px;
+    border-radius:10px;
+
+}

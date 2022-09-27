@@ -67,7 +67,7 @@
     <h3>User Details</h3>
     <pre>{{registerForm.value | json}}</pre>
 </div>  -->
-
+<!---->
 <div class="mt-5">
     <div class="col-md-12 min-vh-100 d-flex flex-column">
         <div class="login-form">
@@ -78,6 +78,8 @@
                     <input type="text" class="form-control" name="username" formControlName="username"
                         placeholder="Enter Username">
                     <label class="error ng-binding" *ngIf="submitted && f['username'].invalid">Name is required
+                    </label>
+                    <label class="error ng-binding" *ngIf="submitted && f['username'].errors">length should be greater than 4 
                     </label>
                 </div>
                 <br>
@@ -94,9 +96,9 @@
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" formControlName="password"
                         placeholder="Enter password">
-                    <label class="error ng-binding" *ngIf="submitted && f['password'].errors?.['password']">Password is
+                    <label class="error ng-binding" *ngIf="submitted && f['password'].errors?.['required']">Password is
                         required</label>
-                    <label class="error ng-binding" *ngIf="submitted && f['password'].errors?.['minlength']">Password
+                    <label class="error ng-binding" *ngIf="submitted && f['password'].errors?.['minlength.required']">Password
                         must be at least 6 characters</label>
                 </div>
                 <br>
@@ -106,6 +108,10 @@
                     <label class="error ng-binding" *ngIf="submitted && f['mobile'].errors?.['required']">Mobile number
                         is
                         required</label>
+                        <div class="mb-3 "  >
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" style="width:20px ;margin-left: 70px;">
+                            <label class="form-check-label" for="exampleCheck1" style="margin-left: 10px;color:rgb(37, 64, 199)">I will agree all the terms&Conditions</label>
+                          </div>
 
                 </div>
                 <br>

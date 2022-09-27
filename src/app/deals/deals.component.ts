@@ -74,5 +74,19 @@ export class DealsComponent implements OnInit {
     }
     return content;
   }
-
+  like=false;
+ showliketoggle()
+ {
+  this.like=!this.like;
+ }
+ togglelike(){
+  var content='';
+  if(this.like){
+    content='fa-solid fa-star fa-2x';
+  }
+  else{
+    content='fa-regular fa-star fa-2x';
+  }
+  return content;
+ }
 }

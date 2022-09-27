@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-//Cart count
 import { CartService } from '../cart.service';
 @Component({
   selector: 'app-nav',
@@ -9,22 +8,25 @@ import { CartService } from '../cart.service';
 })
 export class NavComponent implements OnInit {
 
-  //Dependency injection
   constructor(private authService:UserService,private cartSvc:CartService) { }
   auth:boolean=false;
-  //Add to cart
+  admin:boolean=false;
   cartCount: number=0;
-  //STRING INTERPOLATION
-  title = 'amazon';
+  //string interpolation
+  title = 'BookWorm';
+  //https://cdn-icons-png.flaticon.com/512/29/29302.png
   //PROPERTY BINDING
-  public logo="https://i.pinimg.com/originals/01/ca/da/01cada77a0a7d326d85b7969fe26a728.jpg";
+  public logo="https://www.logolynx.com/images/logolynx/aa/aa3993182ad88a047d21fbcc09b44d04.png";
   //EVENT BINDING
-  // onSearch()
-  // {
-  //   alert("Will contact shortly");
-  // }
-
-  //Accessing the Search Component
+  onSearch()
+  {
+    alert("Post your queries here");
+  }
+  onPost()
+  {
+    alert("Query posted successfully");
+  }
+//Accessing the Search Component
   //Property
   productentered: string=' '  //Laptop
 
@@ -37,7 +39,6 @@ export class NavComponent implements OnInit {
     this.productentered=product_name; //Laptop
     console.log(product_name)
   }
-  //Auth Service
   ngOnInit(): void {
     this.authService.authSubject.subscribe(
       data => 
@@ -46,7 +47,14 @@ export class NavComponent implements OnInit {
         this.auth = data;
       }
     );
-    //Cart count
+    //admin
+    this.authService.adminSubject.subscribe(
+      adminauth =>
+      {
+        console.log('auth inside nav component: ' + adminauth);
+        this.admin = adminauth;
+      }
+    );
     this.cartSvc.getCartItems().subscribe (     
       (response) =>
        {        

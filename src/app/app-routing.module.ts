@@ -12,6 +12,9 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { LoginComponent } from './login/login.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { AvlProdComponent } from './avl-prod/avl-prod.component';
+import { BagComponent } from './bag/bag.component';
+import { WcatComponent } from './wcat/wcat.component';
+import { ContactComponent } from './contact/contact.component';
 //Configure the routing path for the above imported components
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -24,7 +27,10 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'prod_details',component:ProductdetailsComponent},
   {path:'cartitem',component:CartItemsComponent},
-  {path:'avl_prod',component:AvlProdComponent}
+  {path:'avl_prod',component:AvlProdComponent},
+  {path:'bag',component:BagComponent},
+  {path:'wcat',component:WcatComponent},
+  {path:'contact',component:ContactComponent}
 
 ];
 

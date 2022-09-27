@@ -28,6 +28,9 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { LoginComponent } from './login/login.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { AvlProdComponent } from './avl-prod/avl-prod.component';
+import { BagComponent } from './bag/bag.component';
+import { WcatComponent } from './wcat/wcat.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { AvlProdComponent } from './avl-prod/avl-prod.component';
     ProductdetailsComponent,
     LoginComponent,
     CartItemsComponent,
-    AvlProdComponent
+    AvlProdComponent,
+    BagComponent,
+    WcatComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

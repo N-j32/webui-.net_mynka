@@ -1,64 +1,41 @@
-// import { Component, OnInit } from '@angular/core';
-// import {
-//   FormBuilder,
-//   FormGroup,
-//   Validators,
-//   FormControl,
-// } from '@angular/forms';
-// import { Router } from '@angular/router';
-// import { AuthService } from '../auth.service';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css'],
-// })
-// export class LoginComponent implements OnInit {
-//   isSubmitted: boolean = false;
-//   isValidUser: boolean = false;
-//   form: FormGroup = new FormGroup({});
-
-//   constructor(
-//     private fb: FormBuilder,
-//     private router: Router,
-//     private authService: AuthService
-//   ) {}
-
-//   ngOnInit() {
-//     this.form = this.fb.group({
-//       email: new FormControl('', [Validators.required, Validators.email]),
-//       password: new FormControl('', [Validators.required]),
-//     });
-//   }
-
-//   onSubmit() {
-//     this.authService
-//       .login(this.form.value.email, this.form.value.password)
-//       .subscribe((data) => {
-//         if (data) {
-//           this.router.navigate(['/deals']);  // If valid and route to card
-//         }
-//         this.isSubmitted = true;
-//         this.isValidUser = data; // false show error message
-//       });
-//   }
-// }
-import { HttpClient } from '@angular/common/http';
-import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../user.service';
-//npm install sweetalert2
+import { error } from '@angular/compiler/src/util';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+//   constructor() { }
+
+//   myform: FormGroup | any;
+//   useremail: FormControl | any;
+//   password: FormControl | any;
+
+
+//   ngOnInit(): void {
+//     this.useremail= new FormControl('', [Validators.required]);
+//     this.password= new FormControl('',[Validators.required, Validators.pattern('[A-Za-z1-9]*'),Validators.minLength(10),Validators.maxLength(20)]);
+//      this.myform=new FormGroup({
+//       'useremail':this.useremail,
+//       'password':this.password,
+//     })
+    
+//   }
+//   onSubmit(){
+//     alert("User registered successfully");
+//   }
+
+// }
+
 public loginForm!:FormGroup
 //Authenticate user details from userapi
 userapi=environment.userapi;
@@ -75,12 +52,33 @@ get f() { return this.loginForm.controls; }
       useremail: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(6)]]
         });
+        
   }
   login(){
     this.submitted = true;
     if (this.loginForm.invalid) {
       return ;
     }
+    if ("admin@gmail.com"===this.loginForm.value.useremail && "admin123"===this.loginForm.value.password){
+      
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        })
+        Toast.fire({
+          icon: 'success',
+          title: 'Login Successful'
+        })
+        this.loginForm.reset();
+        this.router.navigate(['home'])
+        this.userService.validateAdmin(true);
+    
+    
+  }
+    else{
     this.http.get<any>(this.userapi)
     .subscribe(res=>{
       const user=res.find((a:any)=>{
@@ -94,29 +92,19 @@ get f() { return this.loginForm.controls; }
           timer: 3000,
           timerProgressBar: true,
         })
-    
+
         Toast.fire({
           icon: 'success',
           title: 'Login Successful'
         })
         this.loginForm.reset();
-        this.router.navigate([''])
+        this.router.navigate(['home'])
         this.userService.validateAuth(true);
       }else{
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-        })
-    
-        Toast.fire({
-          icon: 'error',
-          title: 'User not found'
-        })       
+        alert("user not found !!");       
         this.userService.validateAuth(false);
       }
     })
   }
+}
 }

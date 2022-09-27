@@ -9,6 +9,9 @@
             <div>
                 Product: {{product.pname | uppercase}}
                 <span (click)="showproductDetailsToggle()" [ngClass]="toggleContent()"></span>
+                <div style="margin-left: 400px; height:40px;width: 40px; color: rgb(225, 9, 20);" class="like" >
+                    <span  (click)="showliketoggle()" [ngClass]="togglelike()"></span>
+                </div>
             </div>
             <hr>
             <div [hidden]="productDetail">

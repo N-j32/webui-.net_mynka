@@ -30,15 +30,19 @@
           <a class="nav-link" routerLink="deals" *ngIf="auth">Deals</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="prod_details" *ngIf="auth">Product Details</a>
+          <a class="nav-link" routerLink="prod_details" *ngIf="admin">Product Details</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact" *ngIf="auth">Contact us</a>
+        </li>
+        
         <li class="nav-item dropdown" *ngIf="auth">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="micro">Women</a></li>
+            <li><a class="dropdown-item" routerLink="wcat">Women</a></li>
             <li><a class="dropdown-item" routerLink="fridge">Men</a></li>
             <li><a class="dropdown-item" routerLink="washingmach">Home Decore</a></li>
             
@@ -46,24 +50,13 @@
         </li>
       </ul>
       <form class="d-flex">
-        <!-- <input type="text" #productname placeholder="Enter product name" style="border-radius:10px;">&nbsp; -->
-        <!--EVENT BINDING-->
-        <!-- <button class="btn btn-outline-success" type="submit"
-          (click)="search_product(productname.value);productname.value=''" style="border-radius:10px;">Search</button> -->
-        <!--Access the Search Component-->
-        <!-- <br> -->
-        <!--Laptop will get assigned to the property product in search component-->
-        <!--@Input(product) in search component-->
-        <!--PROPERTY BINDING-->
-        <!--@Input(product) in search component is going to receive the value from productentered property from nav component-->
-        <!-- &nbsp;&nbsp;&nbsp;
-        <app-search [product]="productentered"></app-search>
-        &nbsp;&nbsp;&nbsp; -->
+        
         <button routerLink='cartitem' style="height:5px;border:none;" *ngIf="auth">
           <span class="fa fa-cart-plus" style="font-size:16px;color:black"><sup class="text-warning" style="font-size:10px;margin-left: 3px;;">{{cartCount}}</sup></span>
         </button> &nbsp;&nbsp;&nbsp;
         <a class="btn btn-outline-warning" type="submit" style="border-radius:10px;color:black;" routerLink="login"
           *ngIf="auth">Logout</a>
+          
       </form>
     </div>
   </div>
